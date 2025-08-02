@@ -1,5 +1,5 @@
 class WeatherModel {
-  final String date;
+  final DateTime date;
   final String cityName;
   final double minTemp;
   final double maxTemp;
@@ -20,7 +20,7 @@ class WeatherModel {
   factory WeatherModel.fromJson(json) {
     return WeatherModel(
       image: json["forecast"]["forecastday"][0]["day"]["condition"]["icon"],
-      date: json["current"]["last_updated"],
+      date: DateTime.parse(json["current"]["last_updated"]),
       cityName: json["location"]["name"],
       minTemp: json["forecast"]["forecastday"][0]["day"]["mintemp_c"],
       maxTemp: json["forecast"]["forecastday"][0]["day"]["maxtemp_c"],
