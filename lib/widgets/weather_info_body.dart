@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weather/models/weather_model.dart';
-import 'package:weather/theme/theme_data.dart';
+import '../main.dart';
 
 class WeatherInfoBody extends StatelessWidget {
   const WeatherInfoBody({super.key});

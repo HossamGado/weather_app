@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weather/cubits/get_weather_cubit/get_weather_states.dart';
-import 'package:weather/theme/theme_data.dart';
 import 'package:weather/views/home_view.dart';
 
 void main() {
@@ -11,6 +10,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -35,5 +35,40 @@ class MyApp extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+MaterialColor getThemeColor(String? condition) {
+  if (condition == null) {
+    return Colors.blue;
+  }
+  switch (condition.toLowerCase()) {
+    case "sunny":
+      return Colors.amber;
+    case "partly cloudy":
+      return Colors.blueGrey;
+    case "cloudy":
+      return Colors.grey;
+    case "overcast":
+      return Colors.blue;
+    case "mist":
+    case "fog":
+    case "freezing fog":
+      return Colors.lightBlue;
+    case "patchy rain possible":
+    case "light rain":
+    case "snow":
+    case "light snow":
+      return Colors.lightGreen;
+    case "heavy rain":
+    case "thundery outbreaks possible":
+    case "blizzard":
+      return Colors.red;
+    case "light sleet":
+      return Colors.orange;
+    case "ice pellets":
+      return Colors.cyan;
+    default:
+      return Colors.blue;
   }
 }
